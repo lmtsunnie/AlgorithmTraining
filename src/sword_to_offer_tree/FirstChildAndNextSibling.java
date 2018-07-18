@@ -2,7 +2,8 @@ package sword_to_offer_tree;
 
 import java.util.HashMap;
 
-/*树的长子-兄弟链表示法是树的一种二叉树表示法，它的每个结点的度d为2，是最节省存储空间的树的存储表示。
+/*测试
+树的长子-兄弟链表示法是树的一种二叉树表示法，它的每个结点的度d为2，是最节省存储空间的树的存储表示。
 它的结点可以定义为
 typedef struct CSNode{
 	DataType data;
