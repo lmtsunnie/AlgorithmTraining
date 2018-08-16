@@ -22,6 +22,7 @@ Output:
 */
     public static ArrayList<Integer> findNumbersNotAppear(int[] nums) {
      /*自己没想到，看的讨论区的：
+     时间复杂度O(n)，空间复杂度O(1)
      因为 1 <= 值 <= n， 0 <= 索引 <= n - 1
      * 第一遍遍历数组，n出现了就把第n位上的数取负号作为标记，再遍历一遍数组，正数所在的为第几位几就是没出现过的数
      * 自己觉得污染了原始数据，最好再把数组复原成原始数组*/
