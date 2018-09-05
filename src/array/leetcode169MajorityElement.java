@@ -17,13 +17,13 @@ Example 2:
 Input: [2,2,1,1,1,2,2]
 Output: 2
 */
+    /*=====================================================================================*/
+    /* 自想1：
+     * 时间复杂度O(n)，空间复杂度O(n)
+     * 对于每一个数出现的次数用一个map存储，key为数，value为该数出现的次数
+     * 由于一定存在且仅有一个majority number，所以只要某一个num出现的次数大于n/2它就是majority number
+     * */
     public static int majorityElement1(int[] nums) {
-        /*
-        * 自想1：
-        * 时间复杂度O(n)，空间复杂度O(n)
-        * 对于每一个数出现的次数用一个map存储，key为数，value为该数出现的次数
-        * 由于一定存在且仅有一个majority number，所以只要某一个num出现的次数大于n/2它就是majority number
-        * */
         HashMap<Integer, Integer> map = new HashMap<>();
         int max = 0;
         for (int num : nums) {
@@ -42,8 +42,7 @@ Output: 2
         }
         return max;
     }
-
-
+    /*=====================================================================================*/
     /*Solution区看到的：divide and conquer
      * 时间复杂度O(nlogn)，空间复杂度O(logn)，额外空间复杂度用来记录logn个切分点
      * 时间复杂度master公式，T(N)=2T(N/2)+2N a=2,b=2,d=1 logb(a)=d时间复杂度O(NlogN)
@@ -73,15 +72,15 @@ Output: 2
         return majorityElement2Count(nums, left, lo, mid) > majorityElement2Count(nums, right, mid + 1,hi)
                 ? left : right;
     }
-
-    public static int majorityElement3(int[] nums) {
-        /*评论区最简方法：Boyer-Moore Majority Vote Algorithm
+    /*=====================================================================================*/
+    /*评论区最简方法：Boyer-Moore Majority Vote Algorithm
             是个online的算法，随时停止能随时出结果
             时间复杂度O(n)，空间复杂度O(1)
             遍历一遍，用m记录第一个候选者的票数，初始为1，如果下一个是这个候选者那就m++，如果不是则m--
             当m=0时清空这个候选人的信息，用m记录数组中的下一个候选人
             无论在哪里停止，m所对应的候选人就是票数超过半数的那个majority number
          */
+    public static int majorityElement3(int[] nums) {
         int candidate = nums[0], m = 0;
         for (int i = 0; i < nums.length; i++) {
             if (m == 0) {
@@ -96,9 +95,7 @@ Output: 2
         }
         return candidate;
     }
-
-
-
+    /*=====================================================================================*/
     public static void main(String[] args) {
         int[] nums1 = new int[]{3,2,3};
         int[] nums2 = new int[]{2,2,1,1,1,2,2};

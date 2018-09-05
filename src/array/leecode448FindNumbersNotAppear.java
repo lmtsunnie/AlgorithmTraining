@@ -20,6 +20,7 @@ Input:
 Output:
 [5,6]
 */
+    /*=====================================================================================*/
     public static ArrayList<Integer> findNumbersNotAppear(int[] nums) {
      /*自己没想到，看的讨论区的：
      时间复杂度O(n)，空间复杂度O(1)
@@ -52,6 +53,8 @@ Output:
         }*/
         return res;
     }
+    /*=====================================================================================*/
+    // 打印函数：
     public static void printArrayList(ArrayList<Integer> arrayList) {
         if (arrayList == null || arrayList.size() == 0) return;
         Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
@@ -66,7 +69,7 @@ Output:
         }
         System.out.println(nums[nums.length - 1]);
     }
-
+    /*=====================================================================================*/
     public static void main(String[] args) {
         int[] nums = new int[]{4,3,2,7,8,2,3,1};
         printArray(nums);

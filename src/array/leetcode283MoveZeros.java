@@ -15,6 +15,7 @@ Minimize the total number of operations.
 */
 
 public class leetcode283MoveZeros {
+    /*=====================================================================================*/
     /*
     自想1：时间复杂度O(n)，空间复杂度O(1)
     从左到右用i遍历原数组，用j记录该放到哪个位置，
@@ -32,7 +33,8 @@ public class leetcode283MoveZeros {
             nums[insertIndex ++] = 0;
         }
     }
-
+    /*=====================================================================================*/
+    // 打印函数
     public static void printArray(int[] nums) {
         for (int i = 0; i < nums.length - 1; i ++) {
             System.out.print(nums[i] + " ");

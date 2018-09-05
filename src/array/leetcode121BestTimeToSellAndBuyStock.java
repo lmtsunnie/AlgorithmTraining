@@ -56,6 +56,7 @@ public class leetcode121BestTimeToSellAndBuyStock {
     }
     /*=====================================================================================*/
     /*
+    Discuss区看到的：
     类比于最大子数列：最大子数列问题的目标是在数列的一维方向找到一个连续的子数列，使该子数列的和最大。
     例如，对一个数列 −2, 1, −3, 4, −1, 2, 1, −5, 4，其连续子数列中和最大的是 4, −1, 2, 1, 其和为6。
 
@@ -63,22 +64,23 @@ public class leetcode121BestTimeToSellAndBuyStock {
     扫描一次整个数列的所有数值，在每一个扫描点计算以该点数值为结束点的子数列的最大和（正数和）。
     该子数列由两部分组成：【以前一个位置为结束点】的最大子数列、该位置的数值。
     用到了“最佳子结构”（以每个位置为终点的最大子数列都是基于其前一位置的最大子数列计算得出），可看成动态规划。
-    maxCur = max(maxCur + x，x) 前面一段的maxCur要是是负数，还不如不要前面那段以当前值作为起始
-    maxSoFar = max(maxCur, maxSoFar)
+    maxTmp = max(maxTmp + x，x) 前面一段的maxCur要是是负数，还不如不要前面那段以当前值作为起始
+    max = max(maxTmp, max)
     最大子数列问题的一个变种是：如果数列中含有负数元素，允许返回长度为零的子数列。
-      maxCur = max(maxCur + x, 0) 由于maxCur最小是0，如果x太小，使maxCur+x是个负数，就不要这段，取0
-      maxSoFar = max(maxCur, maxSoFar)
+      maxTmp = max(maxTmp + x, 0) 由于maxCur最小是0，如果x太小，使maxCur+x是个负数，就不要这段，取0
+      max = max(maxTmp, max)
 
     以本题类比于最大子数列问题的变种，prices[i]-prices[i-1]即差额相当于最大子数列中的每一个x
     例如prices = [7,1,5,3,6,4], 则差额 = [-6,4,-2,3,-2]，返回长度为0的子数列在这里就是不做股票的交易
+    时间复杂度O(n)，空间复杂度O(1)
       */
     public static int bestTime3(int[] prices) {
-        int maxCur = 0, maxSoFar = 0;
+        int maxTmp = 0, max = 0;
         for(int i = 1; i < prices.length; i++) {
-            maxCur = Math.max(0, maxCur + (prices[i] - prices[i-1]));
-            maxSoFar = Math.max(maxCur, maxSoFar);
+            maxTmp = Math.max(0, maxTmp + (prices[i] - prices[i-1]));
+            max = Math.max(maxTmp, max);
         }
-        return maxSoFar;
+        return max;
     }
 
     /*=====================================================================================*/
