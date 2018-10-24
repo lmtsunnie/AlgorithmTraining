@@ -163,13 +163,13 @@ public class PrintTreeFromTopToBottom {
         root.right.right.left = new TreeNode(9);
         root.right.right.right = new TreeNode(11);
         printTree(root);
-        System.out.println("printArrayList(getArrayListFromTopToBottom(root)): ");
+        System.out.println("PrintArrayList(getArrayListFromTopToBottom(root)): ");
         printArrayList(getArrayListFromTopToBottom(root));
         System.out.println("printFromTopToBottom(root): ");
         printFromTopToBottom(root);
         System.out.println("printFromTopToBottomWithChangeLine(root): ");
         printFromTopToBottomWithChangeLine(root);
-        System.out.println("printDoubleArrayList(getDoubleArrayFromTopToBottomWithChangeLine(root)): ");
+        System.out.println("PrintDoubleArrayList(getDoubleArrayFromTopToBottomWithChangeLine(root)): ");
         printDoubleArrayList(getDoubleArrayFromTopToBottomWithChangeLine(root));
     }
 }

@@ -20,7 +20,7 @@ public class PrintCommonPartBetweenTwoSortedLinkedList {
                 head1 = head1.next;
             } else if (head1.value > head2.value) {
                 head2 = head2.next;
-            } else { // head1.value == head2.value
+            } else { // head1.val == head2.val
                 System.out.print(head1.value + " ");
                 head1 = head1.next;
                 head2 = head2.next;

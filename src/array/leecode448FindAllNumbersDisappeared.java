@@ -2,7 +2,7 @@ package array;
 
 import java.util.ArrayList;
 
-public class leecode448FindNumbersNotAppear {
+public class leecode448FindAllNumbersDisappeared {
     /*448. Find All Numbers Disappeared in an Array
 Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array),
 some elements appear twice and others appear once.

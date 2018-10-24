@@ -11,7 +11,7 @@ public class UseStackBuildQueue {
     // 1) 如果push开始往pop中倒数据，一次要倒完
     // 2) pop栈不为空，不允许倒数据
     // 只要满足以上两个限制，倒数据的行为可以发生在任何时刻
-    public static class TwoStackToQueue {
+    /*public static class TwoStackToQueue {
         private Stack<Integer> stackPush;
         private Stack<Integer> stackPop;
 
@@ -50,18 +50,57 @@ public class UseStackBuildQueue {
             takeOutData();
             return stackPop.peek();
         }
+    }*/
 
+    public static class twoStacksToQueue {
+        private Stack<Integer> pushStack;
+        private Stack<Integer> popStack;
+
+        private void transfer() {
+            if (!popStack.empty())
+                return;
+            while (!pushStack.empty()) {
+                popStack.push(pushStack.pop());
+            }
+        }
+
+        public twoStacksToQueue() {
+            pushStack = new Stack<>();
+            popStack = new Stack<>();
+        }
+
+        public boolean offer(int i) {
+            pushStack.push(i);
+            transfer();
+            return true;
+        }
+
+        public int poll() {
+            if (popStack.empty() && pushStack.empty()) {
+                throw new RuntimeException("Queue is empty");
+            }
+            transfer();
+            return popStack.pop();
+        }
+
+        public int peek() {
+            if (popStack.empty() && pushStack.empty()) {
+                throw new RuntimeException("Queue is empty");
+            }
+            transfer();
+            return popStack.peek();
+        }
     }
     public static void main(String[] args) {
-        TwoStackToQueue twoStackToQueue = new TwoStackToQueue();
-        twoStackToQueue.add(1);
-        twoStackToQueue.add(3);
-        twoStackToQueue.add(5);
+        twoStacksToQueue twoStacksToQueue = new twoStacksToQueue();
+        twoStacksToQueue.offer(1);
+        twoStacksToQueue.offer(3);
+        twoStacksToQueue.offer(5);
         //twoStackToQueue.add(7);
 
-        System.out.println("poll(): " + twoStackToQueue.poll());
-        System.out.println("poll(): " + twoStackToQueue.poll());
-        System.out.println("poll(): " + twoStackToQueue.poll());
+        System.out.println("poll(): " + twoStacksToQueue.poll());
+        System.out.println("poll(): " + twoStacksToQueue.poll());
+        System.out.println("poll(): " + twoStacksToQueue.poll());
         //System.out.println("poll():" + twoStackToQueue.poll());
     }
 }

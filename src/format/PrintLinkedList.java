@@ -1,33 +1,36 @@
 package format;
 
 public class PrintLinkedList {
-    public static class Node {
-        public int value;
-        public Node next;
+    public static class ListNode {
+        public int val;
+        public ListNode next;
 
-        public Node(int data) {
-            this.value = data;
+        public ListNode(int data) {
+            this.val = data;
+            this.next = null;
         }
     }
 
     public static class DoubleNode {
-        public int value;
+        public int val;
         public DoubleNode last;
         public DoubleNode next;
 
         public DoubleNode(int data) {
-            this.value = data;
+            this.val = data;
+            this.next = null;
+            this.last = null;
         }
     }
 
-    public static void printLinkedList(Node head) {
+    public static void printLinkedList(ListNode head) {
         if (head == null) return;
         System.out.print("Linked List: ");
         while (head.next != null) {
-            System.out.print(head.value + " -> ");
+            System.out.print(head.val + " -> ");
             head = head.next;
         }
-        System.out.println(head.value);
+        System.out.println(head.val);
     }
 
     public static void printDoubleLinkedList(DoubleNode head) {
@@ -36,26 +39,26 @@ public class PrintLinkedList {
         DoubleNode end = null;
         System.out.print("head to end: ");
         while (head.next != null) {
-            System.out.print(head.value + " -> ");
+            System.out.print(head.val + " -> ");
             head = head.next;
         }
-        System.out.print(head.value);
+        System.out.print(head.val);
         end = head;
         System.out.print(" | ");
         System.out.print("end to head: ");
         while (end.last != null) {
-            System.out.print(end.value + " -> ");
+            System.out.print(end.val + " -> ");
             end = end.last;
         }
-        System.out.println(end.value);
+        System.out.println(end.val);
     }
 
 
 
-    public static void printLinkedList1(Node head) {
+    public static void printLinkedList1(ListNode head) {
         System.out.print("Linked List: ");
         while (head != null) {
-            System.out.print(head.value + " ");
+            System.out.print(head.val + " ");
             head = head.next;
         }
         System.out.println();
@@ -65,27 +68,27 @@ public class PrintLinkedList {
         DoubleNode end = null;
         System.out.print("head to end: ");
         while (head != null) {
-            System.out.print(head.value + " ");
+            System.out.print(head.val + " ");
             end = head;
             head = head.next;
         }
         System.out.print(" | ");
         System.out.print("end to head: ");
         while (end != null) {
-            System.out.print(end.value + " ");
+            System.out.print(end.val + " ");
             end = end.last;
         }
         System.out.println();
     }
 
     public static void main(String[] args) {
-        Node head1 = new Node(1);
-        head1.next = new Node(2);
-        head1.next.next = new Node(3);
+        ListNode head1 = new ListNode(1);
+        head1.next = new ListNode(2);
+        head1.next.next = new ListNode(3);
        // System.out.println("Before reverse: ");
         printLinkedList(head1);
         //System.out.println("After reverse: ");
-       // printLinkedList(reverseList(head1));
+       // PrintLinkedList(reverseList(head1));
 
         System.out.println("========================================");
 

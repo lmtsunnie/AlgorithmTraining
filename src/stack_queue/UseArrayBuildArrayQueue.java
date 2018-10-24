@@ -11,7 +11,7 @@ public class UseArrayBuildArrayQueue {
     // end一旦到底就返回开头，start一直在追end
     // nonEmptySize == arr.length 时队列为满，如还要加数给用户报错
     // nonEmptySize == 0队列为空，如还要取数给用户报错
-    public static class ArrayQueue {
+    /*public static class ArrayQueue {
         private int[] arr;
         private int nonEmptySize;
         private int start;
@@ -54,6 +54,49 @@ public class UseArrayBuildArrayQueue {
             }
             return arr[start];
         }
+    }*/
+    public static class ArrayQueue {
+        private int[] array;
+        private int curSize;
+        private int start, end;
+        public ArrayQueue(int initSize) {
+            if (initSize < 0) {
+                throw new IllegalArgumentException("The init size is less than 0");
+            }
+            array = new int[initSize];
+            curSize = 0;
+            start = 0;
+            end = 0;
+        }
+
+        public boolean add(int num) {
+            if (curSize == array.length) {
+                throw new ArrayIndexOutOfBoundsException("The Queue is full");
+            }
+            curSize ++;
+            array[end] = num;
+            // end的下一个位置
+            end = end == array.length - 1 ? 0 : end + 1;
+            return true;
+        }
+
+        public int poll() {
+            if (curSize == 0) {
+                throw new ArrayIndexOutOfBoundsException("The Queue is empty");
+            }
+            curSize --;
+            int tmp = start;
+            // start的下一个位置
+            start = start == array.length - 1 ? 0 : start + 1;
+            return array[tmp];
+        }
+
+        public int peek() {
+            if (curSize == 0) {
+                throw new ArrayIndexOutOfBoundsException("The Queue is empty");
+            }
+            return array[start];
+        }
     }
 
     public static void main(String[] args) {
@@ -62,7 +105,7 @@ public class UseArrayBuildArrayQueue {
         arrayQueue.add(3);
         arrayQueue.add(5);
         //arrayQueue.add(7);
-
+        System.out.println("peek(): " + arrayQueue.peek());
         System.out.println("poll(): " + arrayQueue.poll());
         System.out.println("poll(): " + arrayQueue.poll());
         System.out.println("poll(): " + arrayQueue.poll());

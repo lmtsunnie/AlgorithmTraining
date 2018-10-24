@@ -100,7 +100,7 @@ public class Code_04_SerializeAndReconstructTree {
 		return new Node(Integer.valueOf(val));
 	}
 
-	// for LinkedListHasLoopOrNot -- print tree
+	// for LinkedListHasLoopOrNot -- Print tree
 	public static void printTree(Node head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);

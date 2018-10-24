@@ -15,109 +15,118 @@ public class PreInPosLayerTraversal {
         }
     }
 
-    public static void preOrderRecur(Node head) {
-        if (head == null) return;
-        System.out.print(head.value + " ");
-        preOrderRecur(head.left);
-        preOrderRecur(head.right);
+/*=====================================================================================*/
+    // 对左子树进行中序遍历，打印自己，对右子树进行中序遍历
+    public static void preOrderRecur(Node root) {
+        if (root == null) return;
+        System.out.print(root.value + " ");
+        preOrderRecur(root.left);
+        preOrderRecur(root.right);
     }
 
-    public static void inOrderRecur(Node head) {
-        if (head == null) return;
-        inOrderRecur(head.left);
-        System.out.print(head.value + " ");
-        inOrderRecur(head.right);
-    }
-
-    public static void posOrderRecur(Node head) {
-        if (head == null) return;
-        posOrderRecur(head.left);
-        posOrderRecur(head.right);
-        System.out.print(head.value + " ");
-    }
-
-    // 用栈实现，弹出当前节点，有右先压右，有左后压左
+    // 用栈实现，弹出一个节点作为当前节点，打印当前节点，
+    // 然后对于当前节点有右先压右，有左后压左。
     // 先压右后压左，弹出为先弹左后弹右
-    public static void preOrderUnRecur(Node head) {
-        if (head == null) return;
+    public static void preOrderUnrecur(Node root) {
+        if (root == null) return;
         Stack<Node> stack = new Stack<>();
-        stack.push(head);
-        while (!stack.isEmpty()) {
-            head = stack.pop();
-            System.out.print(head.value + " ");
+        stack.push(root);
+        Node cur;
+        while (!stack.empty()) {
+            cur = stack.pop();
+            // 先打印自己
+            System.out.print(cur.value + " ");
             // 有右先压右
-            if (head.right != null) {
-                stack.push(head.right);
-            }
+            if (cur.right != null)
+                stack.push(cur.right);
             // 有左后压左
-            if (head.left != null) {
-                stack.push(head.left);
-            }
+            if (cur.left != null)
+                stack.push(cur.left);
         }
-        System.out.println();
     }
 
-    // 用栈实现，当前节点不为空或者栈不为空继续：当前节点不为空，当前节点压入栈，当前节点往左跑（左边界一压压一溜）；当前节点为空，从栈中拿一个打印，当前节点向右跑
-    public static void inOrderUnRecur(Node head) {
-        if (head == null) return;
+/*=====================================================================================*/
+    // 对左子树进行中序遍历，打印自己，对右子树进行中序遍历
+    public static void inOrderRecur(Node root) {
+        if (root == null) return;
+        inOrderRecur(root.left);
+        System.out.print(root.value + " ");
+        inOrderRecur(root.right);
+    }
+
+    // 用栈实现，当前节点不为空或者栈不为空继续while（只有当前节点为空，栈也为空才退出循环）：
+    // 当前节点不为空，当前节点压入栈，当前节点往左跑（左边界一压压一溜）；
+    // 当前节点为空，从栈中拿一个打印，当前节点向右跑
+    public static void inOrderUnrecur(Node root) {
+        if (root == null) return;
         Stack<Node> stack = new Stack<>();
-        while (head != null || !stack.isEmpty()) {
-            if (head != null) {
-                stack.push(head);
-                head = head.left;
-            } else {
-                head = stack.pop();
-                System.out.print(head.value + " ");
-                head = head.right;
+        Node cur = root;
+        while (cur != null || !stack.empty()) {
+            if (cur != null) { // 当前节点不为空
+                stack.push(cur);
+                cur = cur.left;
+            } else { // 当前节点为空，栈不为空
+                cur = stack.pop();
+                System.out.print(cur.value + " ");
+                cur = cur.right;
             }
         }
-        System.out.println();
     }
 
-    // 后序：左-右-中
-    // 通过 中-左-右(先序) -> 中-右-左，打印的时候不打印，存到栈里去，存完把所有栈中的元素打印 -> 左-右-中
-    public static void posOrderUnRecur(Node head) {
-        if (head == null) return;
+/*=====================================================================================*/
+    // 先对左子树进行后序遍历，再对右子树进行后序遍历，再打印自己
+    public static void posOrderRecur(Node root) {
+        if (root == null) return;
+        posOrderRecur(root.left);
+        posOrderRecur(root.right);
+        System.out.print(root.value + " ");
+    }
+
+    // 后序：左-右-中，通过 中-左-右
+    // (回顾先序：用栈实现，弹出一个节点作为当前节点，打印当前节点，
+    // 然后对于当前节点有右先压右，有左后压左。
+    // 先压右后压左，弹出为先弹左后弹右)
+    // 对于先序左右互换得到中-右-左，
+    // 打印的时候不打印，存到栈里去，
+    // 存完把所有栈中的元素打印 -> 左-右-中
+    public static void posOrderUnrecur(Node root) {
+        if (root == null) return;
         Stack<Node> stack = new Stack<>();
-        Stack<Integer> printStack = new Stack<>();
-        stack.push(head);
-        while (!stack.isEmpty()) {
-            head = stack.pop();
-            // System.out.print(head.value + " ");
-            printStack.push(head.value);
-            // 有左先压左
-            if (head.left != null) {
-                stack.push(head.left);
-            }
-            // 有右后压右
-            if (head.right != null) {
-                stack.push(head.right);
-            }
+        Stack<Integer> storeStack = new Stack<>();
+        stack.push(root);
+        Node cur;
+        while (!stack.empty()) {
+            cur = stack.pop();
+            storeStack.push(cur.value);
+            if (cur.left != null)
+                stack.push(cur.left);
+            if (cur.right != null)
+                stack.push(cur.right);
         }
-        while (!printStack.isEmpty()) {
-            System.out.print(printStack.pop() + " ");
+        while (!storeStack.empty()) {
+            System.out.print(storeStack.pop() + " ");
         }
-        System.out.println();
     }
 
-    // 弹一个出来，把左边右边加进去
-    public static void layerTraversal(Node head) {
-        if (head == null) return;
+/*=====================================================================================*/
+    // 先进先出，用队列实现。弹一个出来，把左边右边加进去
+    public static void layerTraversal(Node root) {
+        if (root == null) return;
         Queue<Node> queue = new LinkedList<>();
-        queue.offer(head);
+        queue.add(root);
+        Node cur;
         while (!queue.isEmpty()) {
-            head = queue.poll();
-            System.out.print(head.value + " ");
-            if (head.left != null) {
-                queue.offer(head.left);
-            }
-            if (head.right != null) {
-                queue.offer(head.right);
-            }
+            cur = queue.poll();
+            System.out.print(cur.value + " ");
+            if (cur.left != null)
+                queue.add(cur.left);
+            if (cur.right != null)
+                queue.add(cur.right);
         }
     }
 
-    // for LinkedListHasLoopOrNot -- print tree
+/*=====================================================================================*/
+    // Print tree
     public static void printTree(Node head) {
         System.out.println("Binary Tree:");
         printInOrder(head, 0, "H", 17);
@@ -147,7 +156,7 @@ public class PreInPosLayerTraversal {
         return buf.toString();
     }
 
-
+/*=====================================================================================*/
     public static void main(String[] args) {
         Node head = new Node(5);
         head.left = new Node(3);
@@ -177,11 +186,14 @@ public class PreInPosLayerTraversal {
         // unrecursive
         System.out.println("============unrecursive=============");
         System.out.print("pre-order: ");
-        preOrderUnRecur(head);
+        preOrderUnrecur(head);
+        System.out.println();
         System.out.print("in-order: ");
-        inOrderUnRecur(head);
+        inOrderUnrecur(head);
+        System.out.println();
         System.out.print("pos-order: ");
-        posOrderUnRecur(head);
+        posOrderUnrecur(head);
+        System.out.println();
 
         // layer
         System.out.println("============layer=============");

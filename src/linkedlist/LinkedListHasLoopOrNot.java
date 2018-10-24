@@ -61,7 +61,7 @@ public class LinkedListHasLoopOrNot {
         if (getLoopNode2(head1) == null) {
             System.out.println("The LinkedList doesn't have loop");
         } else {
-            System.out.println("The value of first loop node is " + getLoopNode2(head1).value);
+            System.out.println("The val of first loop node is " + getLoopNode2(head1).value);
         }
         // 1->2->3->4->5->6->7->null
         Node head2 = new Node(1);
@@ -74,7 +74,7 @@ public class LinkedListHasLoopOrNot {
         if (getLoopNode2(head2) == null) {
             System.out.println("The LinkedList doesn't have loop");
         } else {
-            System.out.println("The value of first loop node is " + getLoopNode2(head2).value);
+            System.out.println("The val of first loop node is " + getLoopNode2(head2).value);
         }
     }
 }

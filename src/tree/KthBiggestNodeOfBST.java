@@ -28,7 +28,7 @@ public class KthBiggestNodeOfBST {
         return null;
     }
 
-    // for LinkedListHasLoopOrNot -- print tree
+    // for LinkedListHasLoopOrNot -- Print tree
     public static void printTree(TreeNode head) {
         System.out.println("Binary Tree:");
         printInOrder(head, 0, "H", 17);

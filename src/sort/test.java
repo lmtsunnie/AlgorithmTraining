@@ -1,66 +1,27 @@
 package sort;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class BubbleSortWithCheck {
-    public static void main1(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
-            int n = sc.nextInt();
-            int[] arr = new int[n];
-            for (int i = 0; i < n; i++) {
-                arr[i] = sc.nextInt();
-            }
-            bubbleSort(arr);
-            printArray(arr);
-        }
+public class test {
+    public static void swap(int[] nums, int lo, int hi) {
+        if (lo == hi) return;
+        nums[lo] = nums[lo] ^ nums[hi];
+        nums[hi] = nums[lo] ^ nums[hi];
+        nums[lo] = nums[lo] ^ nums[hi];
     }
 
     private static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i ++) {
-            System.out.print(arr[i]);
+        if (arr == null || arr.length == 0) return;
+        for (int i = 0; i < arr.length - 1; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println(arr[arr.length - 1]);
     }
 
-
-  /*  private static void bubbleSort(int[] arr) {
-        if (arr == null || arr.length < 2) return;
-        for (int end = arr.length - 1; end >= 1; end --) {
-            for (int i = 0; i <= end - 1; i ++) {
-                if (arr[i] > arr[i + 1])
-                    Swap(arr, i, i + 1);
-            }
-        }
-    }*/
-  public static void bubbleSort(int[] nums) {
-      // 两两比较，大的沉底。i是轮数，在进行第i轮的时候确定了最大的i个值；如果一轮下来都没有交换证明已经有序
-      // 时间复杂度O(n²)，空间复杂度O(1)
-      boolean sorted = true;
-      for (int i = 0; i <= nums.length - 1; i ++) {
-          for (int j = 0; j <= nums.length - 2 - i; j ++) {
-              if (nums[j] > nums[j + 1]) {
-                  sorted = false;
-                  int tmp = nums[j];
-                  nums[j] = nums[j + 1];
-                  nums[j + 1] = tmp;
-              }
-          }
-          if (sorted) return;
-      }
-  }
-
-    private static void swap(int[] arr, int i, int j) {
+    // 对数器
+    // 1、实现一个绝对正确但是复杂度不好的方法b，即对数器
+    public static void comparator(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
-    }
-
-    // 对数器
-    // 1、实现一个绝对正确但是复杂度不好的方法b，即对数器
-    public static void comparator(int[] arr) {
-        Arrays.sort(arr);
     }
     // 2、实现一个随机样本产生器
     public static int[] generateRandomArray(int maxSize, int maxValue) {
@@ -104,15 +65,18 @@ public class BubbleSortWithCheck {
 
     public static void main(String[] args) {
         int testTime = 500000;
-        int maxSize = 100;
-        int maxValue = 100;
+        int maxSize = 3;
+        int maxValue = 10;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
             int[] arr3 = copyArray(arr1);
-            bubbleSort(arr1);
-            comparator(arr2);
+            // [0,n-1]
+            int a = (int) (arr1.length * Math.random());
+            int b = (int) (arr1.length * Math.random());
+            swap(arr1, a, b);
+            comparator(arr2, a, b);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
                 System.out.println("Original array: ");
@@ -127,4 +91,6 @@ public class BubbleSortWithCheck {
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
     }
 }
+
+
 

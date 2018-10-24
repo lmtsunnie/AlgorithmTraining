@@ -3,6 +3,8 @@ package sort;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static sort.HeapSort.*;
+
 public class HeapSortWithCheck {
     public static void main1(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -18,52 +20,6 @@ public class HeapSortWithCheck {
         scanner.close();
     }
 
-    private static void heapSort(int[] arr) {
-        if (arr == null || arr.length < 2) return;
-        // 建堆
-        for (int i = 0; i < arr.length; i++) {
-            heapInsert(arr, i);
-        }
-        int heapSize = arr.length;
-        swap(arr, 0, --heapSize);
-        while (heapSize > 0) {
-            heapify(arr, 0, heapSize);
-            swap(arr, 0, --heapSize);
-        }
-    }
-
-    private static void heapInsert(int[] arr, int index) {
-        while (arr[index] > arr[(index - 1) / 2]) {
-            swap(arr, index, (index - 1) / 2);
-            index = (index - 1) / 2;
-        }
-    }
-
-    private static void heapify(int[] arr, int index, int heapSize) {
-        int left = index * 2 + 1;
-        while (left < heapSize) {
-            int maxIndex = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
-            maxIndex = arr[maxIndex] > arr[index] ? maxIndex : index;
-            if (maxIndex == index) break;
-            swap(arr, index, maxIndex);
-            index = maxIndex;
-            left = index * 2 + 1;
-        }
-    }
-
-    private static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
-
-    private static void printArray(int[] arr) {
-        if (arr == null || arr.length < 1) return;
-        for (int i = 0; i < arr.length - 1; i ++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.print(arr[arr.length - 1]);
-    }
 
     // 对数器
     // 1、实现一个绝对正确但是复杂度不好的方法b，即对数器
@@ -111,9 +67,9 @@ public class HeapSortWithCheck {
     }
 
     public static void main(String[] args) {
-        int testTime = 500000;
-        int maxSize = 100;
-        int maxValue = 100;
+        int testTime = 5000;
+        int maxSize = 3;
+        int maxValue = 10;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
@@ -125,7 +81,7 @@ public class HeapSortWithCheck {
                 succeed = false;
                 System.out.println("Original array: ");
                 printArray(arr3);
-                System.out.println("My bubbleSort result: ");
+                System.out.println("My result: ");
                 printArray(arr1);
                 System.out.println("True result: ");
                 printArray(arr2);

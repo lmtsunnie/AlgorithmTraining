@@ -7,5 +7,4 @@ public class PrintArray {
         }
         System.out.println(nums[nums.length - 1]);
     }
-
 }

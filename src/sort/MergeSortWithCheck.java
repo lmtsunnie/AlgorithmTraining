@@ -25,7 +25,7 @@ public class MergeSortWithCheck {
         System.out.println(arr[arr.length - 1]);
     }
 
-    private static void mergeSort(int[] arr) {
+    /*private static void mergeSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
         mergeSort(arr, 0, arr.length - 1);
     }
@@ -54,6 +54,59 @@ public class MergeSortWithCheck {
         }
         for (i = 0; i < helper.length; i ++) {
             arr[l + i] = helper[i];
+        }
+    }*/
+
+    public static void mergeSort(int[] nums) {
+        if (nums == null || nums.length < 2) return;
+        mergeSortPart(nums, 0, nums.length - 1);
+    }
+
+    public static void mergeSortPart(int[] nums, int lo, int hi) {
+        if (lo >= hi) return;
+        int mid = lo + ((hi - lo) >> 1);
+        mergeSortPart(nums, lo, mid);
+        mergeSortPart(nums, mid + 1, hi);
+        merge(nums, lo, mid, hi);
+    }
+
+    public static void merge(int[] nums, int lo, int mid, int hi) {
+        int length = hi - lo + 1;
+        int[] helper = new int[length];
+        // !!!error: p2 = mid + 1;
+        int p1 = lo, p2 = mid + 1;
+        int i = 0;
+        /*while(p1 <= mid && p2 <= hi) {
+            if (nums[p1] <= nums[p2]) {
+                helper[i++] = nums[p1++];
+            } else if (nums[p2] < nums[p1]) {
+                helper[i++] = nums[p2++];
+            }
+        }
+        // p1走完
+        if (p1 > mid) {
+            while (i < length) {
+                helper[i++] = nums[p2++];
+            }
+        } else { // p2走完
+            while (i < length) {
+                helper[i++] = nums[p1++];
+            }
+        }*/
+        while (p1 <= mid && p2 <= hi) {
+            helper[i++] = nums[p1] <= nums[p2] ? nums[p1++] : nums[p2++];
+        }
+        while (p1 <= mid) {
+            helper[i++] = nums[p1++];
+        }
+        while (p2 <= hi) {
+            helper[i++] = nums[p2++];
+        }
+
+
+        // !!!error: 手残多写了一个int，i已经被定义了
+        for (i = 0; i < length; i ++) {
+            nums[lo + i] = helper[i];
         }
     }
 

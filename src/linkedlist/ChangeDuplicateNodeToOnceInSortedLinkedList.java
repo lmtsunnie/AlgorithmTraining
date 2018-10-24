@@ -31,7 +31,7 @@ public class ChangeDuplicateNodeToOnceInSortedLinkedList {
 
     public static void printLinkedList(Node head) {
         if (head == null) return;
-        //System.out.print("Linked List: ");
+        //System.out.Print("Linked List: ");
         while (head.next != null) {
             System.out.print(head.value + " -> ");
             head = head.next;

@@ -74,7 +74,7 @@ public class ok_Code_07_IsBSTAndCBT {
 		return true;
 	}
 
-	// for LinkedListHasLoopOrNot -- print tree
+	// for LinkedListHasLoopOrNot -- Print tree
 	public static void printTree(Node head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);

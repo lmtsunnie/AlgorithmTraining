@@ -26,14 +26,14 @@ public class MergeSort {
 
     private static void mergeSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
-        mergeSort(arr, 0, arr.length - 1);
+        mergeSortPart(arr, 0, arr.length - 1);
     }
 
-    private static void mergeSort(int[] arr, int l, int r) {
+    private static void mergeSortPart(int[] arr, int l, int r) {
         if (l < r) {
             int mid = l + (r - l) / 2;
-            mergeSort(arr, l, mid);
-            mergeSort(arr, mid + 1, r);
+            mergeSortPart(arr, l, mid);
+            mergeSortPart(arr, mid + 1, r);
             merge(arr, l, mid, r);
         }
     }

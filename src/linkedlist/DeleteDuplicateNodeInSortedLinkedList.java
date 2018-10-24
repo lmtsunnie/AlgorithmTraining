@@ -43,7 +43,7 @@ public class DeleteDuplicateNodeInSortedLinkedList {
 
     public static void printLinkedList(Node head) {
         if (head == null) return;
-        //System.out.print("Linked List: ");
+        //System.out.Print("Linked List: ");
         while (head.next != null) {
             System.out.print(head.value + " -> ");
             head = head.next;
@@ -59,7 +59,7 @@ public class DeleteDuplicateNodeInSortedLinkedList {
         Node node4 = new Node(3);
         Node node5 = new Node(3);
         Node node6 = new Node(3);
-        //Node node7 = new Node(4);
+        //ListNode node7 = new ListNode(4);
         head.next = node1;
         head.next.next = node2;
         head.next.next.next = node3;

@@ -25,14 +25,28 @@ public class SelectionSortWithCheck {
         System.out.println(arr[arr.length - 1]);
     }
 
-    private static void selectionSort(int[] arr) {
+    /*private static void selectionSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
         for (int start = 0; start < arr.length - 1; start ++) {
             int minIndex = start;
             for (int i = start; i < arr.length; i ++) {
                 minIndex = arr[i] < arr[minIndex] ? i : minIndex;
             }
-            swap(arr, start, minIndex);
+            Swap(arr, start, minIndex);
+        }
+    }*/
+
+    public static void selectionSort(int[] nums) {
+        for (int i = 0; i <= nums.length - 2; i ++) {
+            int minIndex = i;
+            for (int j = i; j < nums.length; j ++) {
+                minIndex = nums[j] < nums[minIndex] ? j : minIndex;
+            }
+            if (minIndex != i) {
+                int tmp = nums[i];
+                nums[i] = nums[minIndex];
+                nums[minIndex] = tmp;
+            }
         }
     }
 
@@ -88,7 +102,7 @@ public class SelectionSortWithCheck {
 
     public static void main(String[] args) {
         int testTime = 500000;
-        int maxSize = 100;
+        int maxSize = 4;
         int maxValue = 100;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
@@ -101,7 +115,7 @@ public class SelectionSortWithCheck {
                 succeed = false;
                 System.out.println("Original array: ");
                 printArray(arr3);
-                System.out.println("My bubbleSort result: ");
+                System.out.println("My result: ");
                 printArray(arr1);
                 System.out.println("True result: ");
                 printArray(arr2);

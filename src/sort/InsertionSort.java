@@ -24,12 +24,23 @@ public class InsertionSort {
         System.out.print(arr[arr.length - 1]);
     }
 
-    private static void insertionSort(int[] arr) {
+    /*private static void insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
         for (int i = 1; i < arr.length; i ++) {
             // 待插进来的数是arr[j + 1]，若比前面的数小则和前面的数交换位置
             for (int j = i - 1; j >= 0 && arr[j + 1] < arr[j]; j --) {
-                swap(arr, j, j + 1);
+                Swap(arr, j, j + 1);
+            }
+        }
+    }*/
+    public static void insertionSort(int[] nums) {
+        for (int i = 1; i < nums.length; i ++) {
+            for (int j = i; j >= 1; j --) {
+                if (nums[j] < nums[j - 1]) {
+                    int tmp = nums[j];
+                    nums[j] = nums[j - 1];
+                    nums[j - 1] = tmp;
+                }
             }
         }
     }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Code_06_BucketSort {
 
-	// only for 0~200 value
+	// only for 0~200 val
 	public static void bucketSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;

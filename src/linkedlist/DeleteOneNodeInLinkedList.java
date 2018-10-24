@@ -45,8 +45,8 @@ public class DeleteOneNodeInLinkedList {
 
     public static void main(String[] args) {
         Node head = new Node(1);
-        /*Node node1 = new Node(2);
-        Node node2 = new Node(3);
+        /*ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(3);
         head.next = node1;
         node1.next = node2;*/
         System.out.println("删除节点之前：");
@@ -58,8 +58,8 @@ public class DeleteOneNodeInLinkedList {
         System.out.println("============================");
 
         Node head1 = new Node(1);
-       /* Node node11 = new Node(2);
-        Node node12 = new Node(3);
+       /* ListNode node11 = new ListNode(2);
+        ListNode node12 = new ListNode(3);
         head1.next = node11;
         node11.next = node12;*/
         System.out.println("删除节点之前：");
