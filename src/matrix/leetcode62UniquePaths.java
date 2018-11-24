@@ -1,4 +1,4 @@
-package array;
+package matrix;
 
 public class leetcode62UniquePaths {
     /*A robot is located at the top-left corner of a m x n grid

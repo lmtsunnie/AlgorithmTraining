@@ -83,7 +83,7 @@ public class QuickSort {
                 swap(nums, cur, -- more);
             }
         }
-        swap(nums, more, hi);
+        swap(nums, more ++, hi);
         return new int[]{less + 1, more - 1};
     }
 

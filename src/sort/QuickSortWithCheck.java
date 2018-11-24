@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import static sort.QuickSort.quickSort;
 
-
 public class QuickSortWithCheck {
     public static void main1(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -76,9 +75,9 @@ public class QuickSortWithCheck {
     }
 
     public static void main(String[] args) {
-        int testTime = 500000;
-        int maxSize = 3;
-        int maxValue = 10;
+        int testTime = 5000;
+        int maxSize = 400;
+        int maxValue = 100;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);

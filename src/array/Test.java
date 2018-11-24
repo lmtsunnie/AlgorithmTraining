@@ -1,41 +1,30 @@
 package array;
 
-class Obj {
-    public void setStr(String str) {
-        this.str = str;
-    }
-    private String str = "default value";
-    public String getStr() {
-        return str;
-    }
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Date;
+
+public class Test {
+        public static void main(String[] args) {
+            System.out.println(new Date());
+            try {
+                InetAddress localHost = InetAddress.getLocalHost();
+                System.out.println(localHost);
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+            System.out.println(new Date());
+
+
+        }
+
 }
-public class ChangeObj implements Cloneable{
-    private Obj obj = new Obj();
-    private int a = 0;
-    public Obj getObj() {
-        return obj;
-    }
+/*ArrayList<Integer> arrayList = new ArrayList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.remove(1);
+        linkedList.add(1);
+        linkedList.add(2);*/
 
-    public int getInt() {
-        return a;
-    }
-    public void changeObj(Obj obj) {
-        obj.setStr("changed value");
-    }
 
-    public void changeInt(int a) {
-        a = 1;
-    }
-
-    public static void main(String[] args) {
-        ChangeObj changeObj = new ChangeObj();
-        System.out.println("调用changeObj()前：" + changeObj.getObj().getStr());
-        changeObj.changeObj(changeObj.getObj());
-        System.out.println("调用changeObj()后：" + changeObj.getObj().getStr());
-        System.out.println("调用changeInt()前：" + changeObj.getInt());
-        changeObj.changeInt(changeObj.getInt());
-        System.out.println("调用changInt()后：" + changeObj.getInt());
-        Object object = new Object();
-        object.clone()
-    }
-}

@@ -41,19 +41,19 @@ public class MergeSortWithCheck {
 
     private static void merge(int[] arr, int l, int mid, int r) {
         int p1 = l, p2 = mid + 1;
-        int[] helper = new int[r - l + 1];
+        int[] dfs = new int[r - l + 1];
         int i = 0;
         while (p1 <= mid && p2 <= r) {
-            helper[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
+            dfs[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
         }
         while (p1 <= mid) {
-            helper[i++] = arr[p1++];
+            dfs[i++] = arr[p1++];
         }
         while (p2 <= r) {
-            helper[i++] = arr[p2++];
+            dfs[i++] = arr[p2++];
         }
-        for (i = 0; i < helper.length; i ++) {
-            arr[l + i] = helper[i];
+        for (i = 0; i < dfs.length; i ++) {
+            arr[l + i] = dfs[i];
         }
     }*/
 
@@ -78,19 +78,19 @@ public class MergeSortWithCheck {
         int i = 0;
         /*while(p1 <= mid && p2 <= hi) {
             if (nums[p1] <= nums[p2]) {
-                helper[i++] = nums[p1++];
+                dfs[i++] = nums[p1++];
             } else if (nums[p2] < nums[p1]) {
-                helper[i++] = nums[p2++];
+                dfs[i++] = nums[p2++];
             }
         }
         // p1走完
         if (p1 > mid) {
             while (i < length) {
-                helper[i++] = nums[p2++];
+                dfs[i++] = nums[p2++];
             }
         } else { // p2走完
             while (i < length) {
-                helper[i++] = nums[p1++];
+                dfs[i++] = nums[p1++];
             }
         }*/
         while (p1 <= mid && p2 <= hi) {

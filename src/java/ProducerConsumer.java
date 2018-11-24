@@ -1,13 +1,13 @@
-package array;
+package java;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-public class ProducerConsumerInJava {
+public class ProducerConsumer {
     public static void main(String args[]) {
         Queue<Integer> buffer = new LinkedList<>();
-        int maxSize = 10;
+        int maxSize = 10000;
         Thread producer = new Producer(buffer, maxSize, "PRODUCER");
         Thread consumer = new Consumer(buffer, maxSize, "CONSUMER");
         producer.start();

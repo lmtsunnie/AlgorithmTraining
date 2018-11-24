@@ -110,6 +110,7 @@ public class PreInPosLayerTraversal {
 
 /*=====================================================================================*/
     // 先进先出，用队列实现。弹一个出来，把左边右边加进去
+    // bfs的思想
     public static void layerTraversal(Node root) {
         if (root == null) return;
         Queue<Node> queue = new LinkedList<>();
