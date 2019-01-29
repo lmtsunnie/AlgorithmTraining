@@ -1,6 +1,6 @@
 package array;
 
-import static format.PrintMatrix.printMatrix;
+import static common.PrintMatrix.printMatrix;
 
 public class leetcode64MinimumPathSum {
     /*Given a m x n grid filled with non-negative numbers,

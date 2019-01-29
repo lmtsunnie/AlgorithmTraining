@@ -1,4 +1,4 @@
-package format;
+package common;
 
 public class IsEqual {
     /* 对比两个ArrayList

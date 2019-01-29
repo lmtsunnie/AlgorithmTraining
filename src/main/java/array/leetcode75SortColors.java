@@ -1,6 +1,7 @@
 package array;
 
-import static format.PrintArray.printArray;
+import static common.PrintArray.printArray;
+import static common.Swap.swap;
 
 public class leetcode75SortColors {
     /*Given an array with n objects colored red, white or blue,
@@ -28,7 +29,9 @@ Could you come up with a one-pass algorithm using only constant space?*/
      * 时间复杂度O(n),空间复杂度O(1)
      * */
     public static void sortColors(int[] nums) {
-        if (nums == null || nums.length <= 1) return;
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
         partition(nums, 0, nums.length - 1);
     }
 
@@ -45,13 +48,6 @@ Could you come up with a one-pass algorithm using only constant space?*/
                 swap(nums, cur, --more);
             }
         }
-    }
-
-    public static void swap(int[] nums, int lo, int hi) {
-        if (lo == hi) return;
-        nums[lo] = nums[lo] ^ nums[hi];
-        nums[hi] = nums[lo] ^ nums[hi];
-        nums[lo] = nums[lo] ^ nums[hi];
     }
 
     /*=====================================================================================*/

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static backtracking.leetcode78Subsets.subsets;
-import static format.PrintDoubleArrayList.printDoubleList;
+import static common.PrintDoubleArrayList.printDoubleList;
 
 public class leetcode90Subsets2 {
     /*Given a collection of integers that might contain duplicates, nums,

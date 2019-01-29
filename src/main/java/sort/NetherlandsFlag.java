@@ -1,7 +1,7 @@
 package sort;
 
 import java.util.Scanner;
-import static format.PrintArray.printArray;
+import static common.PrintArray.printArray;
 
 public class NetherlandsFlag {
     public static void main(String[] args) {

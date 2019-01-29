@@ -3,7 +3,7 @@ package backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-import static format.PrintDoubleArrayList.printDoubleList;
+import static common.PrintDoubleArrayList.printDoubleList;
 
 public class leetcode78Subsets {
     /*

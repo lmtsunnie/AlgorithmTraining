@@ -14,6 +14,8 @@ You must do this in-place without making a copy of the array.
 Minimize the total number of operations.
 */
 
+import static common.PrintArray.printArray;
+
 public class leetcode283MoveZeros {
     /*=====================================================================================*/
     /*
@@ -35,12 +37,7 @@ public class leetcode283MoveZeros {
     }
     /*=====================================================================================*/
     // 打印函数
-    public static void printArray(int[] nums) {
-        for (int i = 0; i < nums.length - 1; i ++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println(nums[nums.length - 1]);
-    }
+
 
     public static void main(String[] args){
         int[] nums = {0,1,0,3,12};

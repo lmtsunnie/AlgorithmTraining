@@ -3,7 +3,7 @@ package backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-import static format.PrintList.printList;
+import static common.PrintList.printList;
 
 public class leetcode386LexicographicalNumbers {
     /*Given an integer n, return 1 - n in lexicographical order.

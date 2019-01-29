@@ -2,7 +2,9 @@ package array;
 
 import java.util.ArrayList;
 
-public class leecode448FindAllNumbersDisappeared {
+import static common.PrintArray.printArray;
+
+public class leetcode448FindAllNumbersDisappeared {
     /*448. Find All Numbers Disappeared in an Array
 Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array),
 some elements appear twice and others appear once.
@@ -56,19 +58,16 @@ Output:
     /*=====================================================================================*/
     // 打印函数：
     public static void printArrayList(ArrayList<Integer> arrayList) {
-        if (arrayList == null || arrayList.size() == 0) return;
+        if (arrayList == null || arrayList.size() == 0) {
+            return;
+        }
         Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
         for (Integer i : array) {
             System.out.print(i + " ");
         }
         System.out.println();
     }
-    public static void printArray(int[] nums) {
-        for (int i = 0; i < nums.length - 1; i ++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println(nums[nums.length - 1]);
-    }
+
     /*=====================================================================================*/
     public static void main(String[] args) {
         int[] nums = new int[]{4,3,2,7,8,2,3,1};

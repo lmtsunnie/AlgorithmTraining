@@ -1,4 +1,4 @@
-package format;
+package common;
 
 public class PrintLinkedList {
     public static class ListNode {

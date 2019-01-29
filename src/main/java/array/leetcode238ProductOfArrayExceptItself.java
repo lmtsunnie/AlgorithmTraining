@@ -1,6 +1,6 @@
 package array;
 
-import static format.PrintArray.printArray;
+import static common.PrintArray.printArray;
 
 public class leetcode238ProductOfArrayExceptItself {
     /*

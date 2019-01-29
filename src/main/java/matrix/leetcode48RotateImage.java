@@ -1,6 +1,6 @@
 package matrix;
 
-import static format.PrintMatrix.printMatrix;
+import static common.PrintMatrix.printMatrix;
 
 public class leetcode48RotateImage {
     /*

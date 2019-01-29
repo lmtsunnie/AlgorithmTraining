@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static format.PrintDoubleArrayList.printDoubleList;
+import static common.PrintDoubleArrayList.printDoubleList;
 
 public class leetcode40CombinationSum2 {
     /*Given a collection of candidate numbers (candidates) and a target number (target),

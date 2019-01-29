@@ -1,6 +1,6 @@
 package array;
 
-import static format.PrintArray.printArray;
+import static common.PrintArray.printArray;
 
 public class cskaoyanP18T10 {
     public static void moveLeftN(int[] nums, int p) {
