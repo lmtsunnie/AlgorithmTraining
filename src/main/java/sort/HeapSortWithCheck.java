@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import static sort.HeapSort.*;
+import static common.GenerateRandomArray.copyArray;
 
 public class HeapSortWithCheck {
     public static void main1(String[] args) {
@@ -42,14 +43,7 @@ public class HeapSortWithCheck {
         return arr;
     }
     // 3、将产生的随机数组拷贝成两份
-    public static int[] copyArray(int[] arr) {
-        if (arr == null) return null;
-        int[] res = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            res[i] = arr[i];
-        }
-        return res;
-    }
+
     // 4、分别用想要测的方法a和简单的方法b对数组排序，把排序结果进行比对
     // 对比函数isEqual只有当长度一样而且每个值都对应相等时才返回true，否则返回false
     public static boolean isEqual(int[] arr1, int[] arr2) {

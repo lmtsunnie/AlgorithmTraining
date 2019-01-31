@@ -1,4 +1,5 @@
 package basic_course_sort;
+import static common.GenerateRandomArray.copyArray;
 
 public class Code_08_NetherlandsFlag_sunnie {
     // 返回等于区域的下标范围
@@ -39,14 +40,7 @@ public class Code_08_NetherlandsFlag_sunnie {
     }
 
     // 3、将产生的随机数组拷贝成两份
-    public static int[] copyArray(int[] arr) {
-        if (arr == null) return null;
-        int[] res = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            res[i] = arr[i];
-        }
-        return res;
-    }
+
 
     public static void printArray(int[] arr) {
         if (arr == null) return;

@@ -1,6 +1,8 @@
 package sort;
 
 import java.util.Scanner;
+import static common.GenerateRandomArray.copyArray;
+
 
 public class NetherlandsFlagWithCheck {
     public static void main1(String[] args) {
@@ -82,13 +84,6 @@ public class NetherlandsFlagWithCheck {
     }
 
     // 3、将产生的随机数组拷贝成两份
-    public static int[] copyArray(int[] arr) {
-        if (arr == null) return null;
-        int[] res = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            res[i] = arr[i];
-        }
-        return res;
-    }
+
 
 }

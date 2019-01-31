@@ -1,6 +1,7 @@
 package basic_course_sort;
 
 import java.util.Arrays;
+import static common.GenerateRandomArray.copyArray;
 
 public class Code_11_MaxGap_sunnie {
     public static int maxGap(int[] nums) {
@@ -72,14 +73,7 @@ public class Code_11_MaxGap_sunnie {
         return arr;
     }
     // 3、将产生的随机数组拷贝成两份
-    public static int[] copyArray(int[] arr) {
-        if (arr == null) return null;
-        int[] res = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            res[i] = arr[i];
-        }
-        return res;
-    }
+
 
     public static void printArray(int[] arr) {
         if (arr == null) return;

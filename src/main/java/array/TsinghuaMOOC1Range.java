@@ -43,7 +43,7 @@ Output
 内存：256 MB*/
 
 
-    public static int binarySearch1(int[] nums, int target, int lo, int hi) {
+    public static int findLeftIndex(int[] nums, int target, int lo, int hi) {
         while (lo < hi) {
             int mid = lo + ((hi - lo) >> 1);
             //int mid = lo + ((hi - lo) >> 1);
@@ -56,9 +56,9 @@ Output
             }
         }
         return lo; // 循环结束时，lo为>=target的最小下标，故lo-1为<target的最大下标
-    } // 有多个元素命中target时，保证返回下标最大的；查找失败时返回<target的最大下标
+    } // 有多个元素命中target时，保证返回下标最小的；查找失败时返回>=target的最小下标
 
-    public static int binarySearch2(int[] nums, int target, int lo, int hi) {
+    public static int findRightIndex(int[] nums, int target, int lo, int hi) {
         while (lo < hi) {
             int mid = lo + ((hi - lo) >> 1);
 
@@ -75,8 +75,8 @@ Output
 
 
     public static int range(int[] nums, int length, int a, int b) {
-        int loRange = binarySearch1(nums, a, 0, length);
-        int hiRange = binarySearch2(nums, b, 0, length);
+        int loRange = findLeftIndex(nums, a, 0, length);
+        int hiRange = findRightIndex(nums, b, 0, length);
         return hiRange - loRange + 1;
     }
 
