@@ -3,6 +3,9 @@ package array;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static array.BinarySearch.binarySearchForFirstGreaterOrEqualNumIndex;
+import static array.BinarySearch.binarySearchForFirstLessOrEqualNumIndex;
+
 public class TsinghuaMOOC1Range {
 
 /*描述
@@ -75,9 +78,11 @@ Output
 
 
     public static int range(int[] nums, int length, int a, int b) {
-        int loRange = findLeftIndex(nums, a, 0, length);
-        int hiRange = findRightIndex(nums, b, 0, length);
-        return hiRange - loRange + 1;
+        // int loRange = findLeftIndex(nums, a, 0, length);
+        // int hiRange = findRightIndex(nums, b, 0, length);
+        int leftIndex = binarySearchForFirstGreaterOrEqualNumIndex(nums, a);
+        int rightIndex = binarySearchForFirstLessOrEqualNumIndex(nums, b);
+        return rightIndex - leftIndex + 1;
     }
 
     public static void main(String[] args) {
