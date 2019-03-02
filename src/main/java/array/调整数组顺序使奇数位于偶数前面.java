@@ -36,7 +36,7 @@ public class 调整数组顺序使奇数位于偶数前面 {
      * 是奇数就前移，相邻交换
      * 时间复杂度O(n²)，空间复杂度O(1)
      */
-    public void reOrderArray2(int[] array) {
+    public static void reOrderArray2(int[] array) {
         if (array == null || array.length <= 0) {
             return;
         }
