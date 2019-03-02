@@ -6,7 +6,7 @@ public class leetcode695MaxAreaOfIsland {
     an island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.)
     You may assume all four edges of the grid are surrounded by water.
 
-    Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)
+    find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)
 
     Example 1:
            [[0,0,1,0,0,0,0,1,0,0,0,0,0],

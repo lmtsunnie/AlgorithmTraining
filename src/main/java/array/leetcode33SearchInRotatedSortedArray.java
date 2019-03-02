@@ -57,7 +57,7 @@ Output: -1
         int lo = 0, hi = nums.length - 1;
         while (lo <= hi) {
             int mid = lo + ((hi - lo) >> 1);
-            // mid < hi：最小值在左半部分也可能是自己
+            // mid < hi：最小值在左半部分,也可能是自己
             if (nums[mid] < nums[hi]) {
                 hi = mid;
                 // mid > hi：最小值在右半部分，不可能是自己了

@@ -10,7 +10,7 @@ import java.util.Set;
 //undirected graph only
 public class Code_04_Kruskal {
 
-	// Union-Find Set
+	// Union-find Set
 	public static class UnionFind {
 		private HashMap<Node, Node> fatherMap;
 		private HashMap<Node, Integer> rankMap;

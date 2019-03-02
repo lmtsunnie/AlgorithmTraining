@@ -28,7 +28,7 @@ Output:
 
     /*
     必然是看的讨论区的：
-    backtracking thoughts:
+    canJumpFromPosition1 thoughts:
     Pick a starting point.
     while(Problem is not solved)
         For each path from the starting point.

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import static common.PrintArray.printArray;
 
 public class leetcode448FindAllNumbersDisappeared {
-    /*448. Find All Numbers Disappeared in an Array
+    /*448. find All Numbers Disappeared in an Array
 Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array),
 some elements appear twice and others appear once.
 
-Find all the elements of [1, n] inclusive that do not appear in this array.
+find all the elements of [1, n] inclusive that do not appear in this array.
 
 Could you do it without extra space and in O(n) runtime?
 You may assume the returned list does not count as extra space.
