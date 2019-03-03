@@ -65,7 +65,9 @@ public class MergeSortWithCheck {
     }
 
     public static void mergeSortPart(int[] nums, int lo, int hi) {
-        if (lo >= hi) return;
+        if (lo >= hi) {
+            return;
+        }
         int mid = lo + ((hi - lo) >> 1);
         mergeSortPart(nums, lo, mid);
         mergeSortPart(nums, mid + 1, hi);

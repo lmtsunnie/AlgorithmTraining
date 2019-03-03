@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import static common.GenerateRandomArray.copyArray;
+import static common.PrintArray.printArray;
+import static common.Swap.swap;
 
 public class InsertionSortWithCheck {
     public static void main1(String[] args) {
@@ -20,15 +22,10 @@ public class InsertionSortWithCheck {
         scanner.close();
     }
 
-    private static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i ++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.print(arr[arr.length - 1]);
-    }
-
     private static void insertionSort(int[] arr) {
-        if (arr == null || arr.length < 2) return;
+        if (arr == null || arr.length < 2) {
+            return;
+        }
         for (int i = 1; i < arr.length; i ++) {
             // 待插进来的数是arr[j + 1]，若比前面的数小则和前面的数交换位置
             for (int j = i - 1; j >= 0 && arr[j + 1] < arr[j]; j --) {
@@ -37,11 +34,6 @@ public class InsertionSortWithCheck {
         }
     }
 
-    private static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
     // 对数器
     // 1、实现一个绝对正确但是复杂度不好的方法b，即对数器
     public static void comparator(int[] arr) {

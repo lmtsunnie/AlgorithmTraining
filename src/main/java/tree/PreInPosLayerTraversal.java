@@ -18,7 +18,9 @@ public class PreInPosLayerTraversal {
 /*=====================================================================================*/
     // 对左子树进行中序遍历，打印自己，对右子树进行中序遍历
     public static void preOrderRecur(Node root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         System.out.print(root.value + " ");
         preOrderRecur(root.left);
         preOrderRecur(root.right);
@@ -28,7 +30,9 @@ public class PreInPosLayerTraversal {
     // 然后对于当前节点有右先压右，有左后压左。
     // 先压右后压左，弹出为先弹左后弹右
     public static void preOrderUnrecur(Node root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         Stack<Node> stack = new Stack<>();
         stack.push(root);
         Node cur;

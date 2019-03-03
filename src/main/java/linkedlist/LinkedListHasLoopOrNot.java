@@ -15,7 +15,9 @@ public class LinkedListHasLoopOrNot {
 
     // 1、head作为key放入hashset，只有key，没有value，空间复杂度O(n)
     public static Node getLoopNode1(Node head) {
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
         HashSet<Node> set = new HashSet<>();
         while (head != null) {
             if (!set.add(head)) {
@@ -30,7 +32,9 @@ public class LinkedListHasLoopOrNot {
     // 快指针一次走两步，慢指针一次走一步，如果快指针遇到空则返回无环
     // 如果有环则快指针和慢指针一定会相遇，相遇后快指针回到开头，以后快指针和慢指针都一次走一步，相遇处即为入环节点
     public static Node getLoopNode2(Node head) {
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
         Node fast = head.next.next;
         Node slow = head.next;
         while (fast != slow) {

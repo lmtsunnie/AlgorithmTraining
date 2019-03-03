@@ -9,12 +9,16 @@ public class IsPosTraversalSequenceOfBSTOrNot {
       T可以分成两段，前一段（左子树）小于x，后一段（右子树）大于x，
       且这两段（子树）都是合法的后序序列。完美的递归定义。*/
     public static boolean isPosTraversalSequenceOfBST(int[] sequence) {
-        if (sequence == null || sequence.length < 1) return false;
+        if (sequence == null || sequence.length < 1) {
+            return false;
+        }
         return isPos(sequence, 0, sequence.length - 1);
     }
 
     public static boolean isPos(int[] sequence, int start, int end) {
-        if (start >= end) return true;
+        if (start >= end) {
+            return true;
+        }
         int i = start;
         // 如果是后序序列则start~i-1为小于sequence[end]的数，i~end-1为大于sequence[end]的数
         while (i < end && sequence[i] < sequence[end]) {
@@ -22,8 +26,9 @@ public class IsPosTraversalSequenceOfBSTOrNot {
         }
         // 验证i~end-1为大于sequence[end]的数
         for (int j = i; j < end; j++) {
-            if (sequence[j] < sequence[end])
+            if (sequence[j] < sequence[end]) {
                 return false;
+            }
         }
         return isPos(sequence, start, i - 1) && isPos(sequence, i, end - 1);
     }
