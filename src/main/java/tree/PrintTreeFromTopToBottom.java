@@ -34,7 +34,9 @@ public class PrintTreeFromTopToBottom {
 
     public static ArrayList<Integer> getArrayListFromTopToBottom(TreeNode root) {
         ArrayList<Integer> arrayList = new ArrayList<>();
-        if (root == null) return arrayList;
+        if (root == null) {
+            return arrayList;
+        }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -51,7 +53,9 @@ public class PrintTreeFromTopToBottom {
     }
 
     public static void printFromTopToBottom(TreeNode root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -69,7 +73,9 @@ public class PrintTreeFromTopToBottom {
 
     // count为该层从队列中弹出的节点的个数，nextLayerCount为在队列中的元素个数，即下一层的节点的总个数
     public static void printFromTopToBottomWithChangeLine(TreeNode root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         Queue<TreeNode> queue = new LinkedList<>();
         int count = 0;
         int nextLayerCount = 1;

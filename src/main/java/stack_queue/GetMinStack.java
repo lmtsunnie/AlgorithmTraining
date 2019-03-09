@@ -50,6 +50,7 @@ public class GetMinStack {
     // 当入栈时只有当当前值比min栈栈顶小的时候才将当前值压入min栈
     // 当出栈时出栈的值和min栈栈顶比较，若相等则把min栈栈顶移除
     // 与minStack1相比节省min相同时的存储空间，每个min只存一份
+    // 但是无法处理有元素相等的情况
     public static class minStack2 {
         private Stack<Integer> stackData;
         private Stack<Integer> stackMin;
@@ -72,7 +73,7 @@ public class GetMinStack {
             if (stackData.isEmpty()) {
                 throw new RuntimeException("Stack is empty");
             }
-            if (stackData.peek() == stackMin.peek()) {
+            if (stackData.peek().equals(stackMin.peek())) {
                 stackMin.pop();
             }
             return stackData.pop();
@@ -93,6 +94,7 @@ public class GetMinStack {
         minStack1.push(4);
         System.out.println(minStack1.getMin());
         minStack1.push(1);
+        minStack1.push(1);
         System.out.println(minStack1.getMin());
         System.out.println(minStack1.pop());
         System.out.println(minStack1.getMin());
@@ -104,6 +106,7 @@ public class GetMinStack {
         System.out.println(minStack2.getMin());
         minStack2.push(4);
         System.out.println(minStack2.getMin());
+        minStack2.push(1);
         minStack2.push(1);
         System.out.println(minStack2.getMin());
         System.out.println(minStack2.pop());

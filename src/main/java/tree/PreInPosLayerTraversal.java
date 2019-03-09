@@ -52,7 +52,9 @@ public class PreInPosLayerTraversal {
 /*=====================================================================================*/
     // 对左子树进行中序遍历，打印自己，对右子树进行中序遍历
     public static void inOrderRecur(Node root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         inOrderRecur(root.left);
         System.out.print(root.value + " ");
         inOrderRecur(root.right);
@@ -80,7 +82,9 @@ public class PreInPosLayerTraversal {
 /*=====================================================================================*/
     // 先对左子树进行后序遍历，再对右子树进行后序遍历，再打印自己
     public static void posOrderRecur(Node root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         posOrderRecur(root.left);
         posOrderRecur(root.right);
         System.out.print(root.value + " ");
@@ -94,7 +98,9 @@ public class PreInPosLayerTraversal {
     // 打印的时候不打印，存到栈里去，
     // 存完把所有栈中的元素打印 -> 左-右-中
     public static void posOrderUnrecur(Node root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         Stack<Node> stack = new Stack<>();
         Stack<Integer> storeStack = new Stack<>();
         stack.push(root);
@@ -102,10 +108,12 @@ public class PreInPosLayerTraversal {
         while (!stack.empty()) {
             cur = stack.pop();
             storeStack.push(cur.value);
-            if (cur.left != null)
+            if (cur.left != null) {
                 stack.push(cur.left);
-            if (cur.right != null)
+            }
+            if (cur.right != null) {
                 stack.push(cur.right);
+            }
         }
         while (!storeStack.empty()) {
             System.out.print(storeStack.pop() + " ");
@@ -116,17 +124,21 @@ public class PreInPosLayerTraversal {
     // 先进先出，用队列实现。弹一个出来，把左边右边加进去
     // bfs的思想
     public static void layerTraversal(Node root) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
         Node cur;
         while (!queue.isEmpty()) {
             cur = queue.poll();
             System.out.print(cur.value + " ");
-            if (cur.left != null)
+            if (cur.left != null) {
                 queue.add(cur.left);
-            if (cur.right != null)
+            }
+            if (cur.right != null) {
                 queue.add(cur.right);
+            }
         }
     }
 
