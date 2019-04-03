@@ -55,15 +55,19 @@ public class QuickSortWithCheck {
     // 4、分别用想要测的方法a和简单的方法b对数组排序，把排序结果进行比对
     // 对比函数isEqual只有当长度一样而且每个值都对应相等时才返回true，否则返回false
     public static boolean isEqual(int[] arr1, int[] arr2) {
-        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null))
+        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
             return false;
-        if (arr1 == null && arr2 == null)
+        }
+        if (arr1 == null && arr2 == null) {
             return true;
-        if (arr1.length != arr2.length)
+        }
+        if (arr1.length != arr2.length) {
             return false;
+        }
         for (int i = 0; i < arr1.length - 1; i++) {
-            if (arr1[i] != arr2[i])
+            if (arr1[i] != arr2[i]) {
                 return false;
+            }
         }
         return true;
     }

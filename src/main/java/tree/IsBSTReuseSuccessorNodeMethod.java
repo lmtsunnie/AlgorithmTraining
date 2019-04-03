@@ -90,5 +90,6 @@ public class IsBSTReuseSuccessorNodeMethod {
 
         printTree(head);
         System.out.println(isBST(head));
+
     }
 }

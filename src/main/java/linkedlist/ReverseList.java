@@ -20,7 +20,7 @@ public class ReverseList {
         }
     }
 
-    public static Node reverseList(Node head) {
+    public static Node reverseList1(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -32,6 +32,23 @@ public class ReverseList {
             cur.next = pre; // 把当前节点的指针指向前一个节点
             pre = cur; // 把当前节点作为下一个节点的前一个节点
             cur = next; // 把刚刚存储好的下一个节点作为当前节点
+        }
+        return pre;
+    }
+
+    public static Node reverseList(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node pre = null, cur = head, next;
+        while (cur != null) {
+            // next记录下来
+            next = cur.next;
+            // 再将cur指向pre
+            cur.next = pre;
+            // 下一个pre/cur
+            pre = cur;
+            cur = next;
         }
         return pre;
     }

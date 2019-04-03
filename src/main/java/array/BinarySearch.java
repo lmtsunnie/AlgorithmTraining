@@ -30,6 +30,27 @@ public class BinarySearch {
         return -1;
     }
 
+    public static int binarySearchWithoutDuplicates2(int[] nums, int target) {
+        if (nums == null || nums.length <= 0) {
+            return -1;
+        }
+        return helper(nums, target, 0, nums.length - 1);
+    }
+
+    public static int helper(int[] nums, int target, int lo, int hi) {
+        if (lo > hi) {
+            return -1;
+        }
+        int mid = lo + ((hi - lo) >> 1);
+        if (target < nums[mid]) {
+            return helper(nums, target, lo, mid - 1);
+        } else if (target > nums[mid]) {
+            return helper(nums, target, mid + 1, hi);
+        } else {
+            return nums[mid];
+        }
+    }
+
     public static int binarySearchComparator(int[] nums, int target) {
         if (nums == null || nums.length <= 0) {
             return -1;
@@ -172,6 +193,26 @@ public class BinarySearch {
         return lo <= nums.length - 1 && nums[lo] == target ? lo : -1;
     }
 
+    public static int findLeftIndex2(int[] nums, int target) {
+        if (nums == null || nums.length <= 0) {
+            return -1;
+        }
+        int lo = 0, hi = nums.length - 1;
+        while (lo < hi) {
+            int mid = lo + ((hi - lo) >> 1);
+            // 关注第一个=target的数，处于较为前面的位置
+            // <= nums[mid]
+            if (target < nums[mid]) {
+                hi = mid - 1;
+            } else if (target > nums[mid]) { // > nums[mid]
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        return nums[lo] == target ? lo : -1;
+    }
+
     /**
      * 【1.3的改进：1.3最后的返回加一个判断条件】
      * 1.6 查找最后一个等于某个数的下标，即从右边起查找第一个等于某个数的下标
@@ -199,13 +240,66 @@ public class BinarySearch {
         return hi >= 0 && nums[hi] == target ? hi : -1;
     }
 
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,1,2};
+        System.out.println(findLeftIndex2(nums, 1));
+    }
+
+    public static int findRightIndex2(int[] nums, int target) {
+        if (nums == null || nums.length <= 0) {
+            return -1;
+        }
+        int lo = 0, hi = nums.length - 1;
+        while (hi - lo >= 2) {
+            int mid = lo + ((hi - lo) >> 1);
+            if (target < nums[mid]) {
+                hi = mid - 1;
+            } else if (target > nums[mid]) {
+                lo = mid + 1;
+            } else {
+                lo = mid;
+            }
+        }
+        if (nums[hi] == target) {
+            return hi;
+        } else if(nums[lo] == target) {
+            return lo;
+        } else {
+            return -1;
+        }
+    }
+
+    public static int findRightIndex3(int[] nums, int target) {
+        if (nums == null || nums.length <= 0) {
+            return -1;
+        }
+        int lo = 0, hi = nums.length - 1;
+        while (lo < hi - 1) {
+            int mid = lo + ((hi - lo) >> 1);
+            if (target < nums[mid]) {
+                hi = mid - 1;
+            } else if (target > nums[mid]) {
+                lo = mid + 1;
+            } else {
+                lo = mid;
+            }
+        }
+        if (nums[hi] == target) {
+            return hi;
+        } else if(nums[lo] == target) {
+            return lo;
+        } else {
+            return -1;
+        }
+    }
+
     /**
      * 【1.5和1.6的改进】
      * 1.7 查找一个数出现的次数
      */
     public static int getCount(int[] nums, int target) {
-        int leftIndex = findLeftIndex(nums, target);
-        int rightIndex = findRightIndex(nums, target);
+        int leftIndex = findLeftIndex2(nums, target);
+        int rightIndex = findRightIndex2(nums, target);
         return rightIndex - leftIndex + 1;
     }
 
@@ -271,7 +365,7 @@ public class BinarySearch {
     }
 
 
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
         int testTime = 50;
         int maxSize = 10;
         int maxValue = 10;
@@ -300,7 +394,7 @@ public class BinarySearch {
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
     }
 
-    public static void main4(String[] args) {
+    public static void main5(String[] args) {
         int testTime = 500000;
         int maxSize = 10;
         int maxValue = 10;
@@ -316,6 +410,7 @@ public class BinarySearch {
                 continue;
             }
             target = arr1[(int) (Math.random() * arr1.length)];
+            printArray(arr2);
             // Collections.singletonList(arr1).forEach(x -> System.out.println(Arrays.toString(x) + " "));
             if (getCount(arr1, target) != getCountComparator(arr2, target)) {
                 succeed = false;
@@ -357,7 +452,7 @@ public class BinarySearch {
             // random [0,1)
             // random * length [0,length)
             int target = arr1[(int) (Math.random() * arr1.length)];
-            if (binarySearchWithoutDuplicates(arr1, target) != binarySearchComparator(arr2, target)) {
+            if (binarySearchWithoutDuplicates2(arr1, target) != binarySearchComparator(arr2, target)) {
                 succeed = false;
                 System.out.print("nums[]: ");
                 printArray(arr2);

@@ -49,6 +49,21 @@ public class HeapSort {
             left = index * 2 + 1;
         }
     }*/
+
+    public static void heapSort(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
+        for (int i = 1; i <= nums.length - 1; i++) {
+            heapInsert(nums, i);
+        }
+        int lastHeapIndex = nums.length - 1;
+        while (lastHeapIndex >= 1) {
+            swap(nums, 0, lastHeapIndex--);
+            heapify(nums, 0, lastHeapIndex);
+        }
+    }
+
     public static void heapInsert(int[] nums, int i) {
         while (nums[i] > nums[(i - 1) / 2]) {
             swap(nums, i, (i - 1) / 2);
@@ -56,39 +71,37 @@ public class HeapSort {
         }
     }
 
-    public static void heapify(int[] nums, int i, int heapSize) {
+    public static void heapify(int[] nums, int i, int lastHeapIndex) {
         int leftIndex = 2 * i + 1;
-        while (leftIndex <= heapSize - 1) {
-            int maxIndex = leftIndex + 1 <= heapSize - 1 && nums[leftIndex + 1] > nums[leftIndex] ? leftIndex + 1 : leftIndex;
+        int rightIndex = leftIndex + 1;
+        while (leftIndex <= lastHeapIndex) {
+            int maxIndex = rightIndex <= lastHeapIndex && nums[rightIndex] > nums[leftIndex]
+                    ? rightIndex : leftIndex;
             maxIndex = nums[maxIndex] > nums[i] ? maxIndex : i;
-            if (maxIndex == i) return;
+            if (maxIndex == i) {
+                return;
+            }
             swap(nums, maxIndex, i);
+            // 下一次的i和leftIndex/rightIndex
             i = maxIndex;
             leftIndex = 2 * i + 1;
-        }
-    }
-
-    public static void heapSort(int[] nums) {
-        if (nums == null || nums.length < 2) return;
-        for (int i = 1; i < nums.length; i ++) {
-            heapInsert(nums, i);
-        }
-        int heapSize = nums.length;
-        while (heapSize >= 2) {
-            swap(nums, 0, -- heapSize);
-            heapify(nums, 0, heapSize);
+            rightIndex = leftIndex + 1;
         }
     }
 
     public static void swap(int[] nums, int i, int j) {
-        if (i == j) return;
+        if (i == j) {
+            return;
+        }
         nums[i] = nums[i] ^ nums[j];
         nums[j] = nums[i] ^ nums[j];
         nums[i] = nums[i] ^ nums[j];
     }
 
     public static void printArray(int[] arr) {
-        if (arr == null || arr.length < 1) return;
+        if (arr == null || arr.length < 1) {
+            return;
+        }
         for (int i = 0; i < arr.length - 1; i++) {
             System.out.print(arr[i] + " ");
         }
