@@ -2,28 +2,18 @@ package common;
 
 public class PrintBinaryTree {
 
-	public static class Node {
-		public int value;
-		public Node left;
-		public Node right;
-
-		public Node(int data) {
-			this.value = data;
-		}
-	}
-
-	public static void printTree(Node head) {
+	public static void printTree(TreeNode head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);
 		System.out.println();
 	}
 
-	public static void printInOrder(Node head, int height, String to, int len) {
+	public static void printInOrder(TreeNode head, int height, String to, int len) {
 		if (head == null) {
 			return;
 		}
 		printInOrder(head.right, height + 1, "v", len);
-		String val = to + head.value + to;
+		String val = to + head.val + to;
 		int lenM = val.length();
 		int lenL = (len - lenM) / 2;
 		int lenR = len - lenM - lenL;
@@ -42,31 +32,31 @@ public class PrintBinaryTree {
 	}
 
 	public static void main(String[] args) {
-		Node head = new Node(1);
-		head.left = new Node(-222222222);
-		head.right = new Node(3);
-		head.left.left = new Node(Integer.MIN_VALUE);
-		head.right.left = new Node(55555555);
-		head.right.right = new Node(66);
-		head.left.left.right = new Node(777);
+		TreeNode head = new TreeNode(1);
+		head.left = new TreeNode(-222222222);
+		head.right = new TreeNode(3);
+		head.left.left = new TreeNode(Integer.MIN_VALUE);
+		head.right.left = new TreeNode(55555555);
+		head.right.right = new TreeNode(66);
+		head.left.left.right = new TreeNode(777);
 		printTree(head);
 
-		head = new Node(1);
-		head.left = new Node(2);
-		head.right = new Node(3);
-		head.left.left = new Node(4);
-		head.right.left = new Node(5);
-		head.right.right = new Node(6);
-		head.left.left.right = new Node(7);
+		head = new TreeNode(1);
+		head.left = new TreeNode(2);
+		head.right = new TreeNode(3);
+		head.left.left = new TreeNode(4);
+		head.right.left = new TreeNode(5);
+		head.right.right = new TreeNode(6);
+		head.left.left.right = new TreeNode(7);
 		printTree(head);
 
-		head = new Node(1);
-		head.left = new Node(1);
-		head.right = new Node(1);
-		head.left.left = new Node(1);
-		head.right.left = new Node(1);
-		head.right.right = new Node(1);
-		head.left.left.right = new Node(1);
+		head = new TreeNode(1);
+		head.left = new TreeNode(1);
+		head.right = new TreeNode(1);
+		head.left.left = new TreeNode(1);
+		head.right.left = new TreeNode(1);
+		head.right.right = new TreeNode(1);
+		head.left.left.right = new TreeNode(1);
 		printTree(head);
 
 	}

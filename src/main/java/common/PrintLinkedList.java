@@ -34,7 +34,9 @@ public class PrintLinkedList {
     }
 
     public static void printDoubleLinkedList(DoubleNode head) {
-        if (head == null) return;
+        if (head == null) {
+            return;
+        }
         System.out.print("Double Linked List: ");
         DoubleNode end = null;
         System.out.print("head to end: ");
@@ -53,7 +55,27 @@ public class PrintLinkedList {
         System.out.println(end.val);
     }
 
-
+    public static void printDoubleTreeNode(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print("Double Linked List: ");
+        TreeNode end = null;
+        System.out.print("root to end: ");
+        while (root.right != null) {
+            System.out.print(root.val + " -> ");
+            root = root.right;
+        }
+        System.out.print(root.val);
+        end = root;
+        System.out.print(" | ");
+        System.out.print("end to root: ");
+        while (end.left != null) {
+            System.out.print(end.val + " -> ");
+            end = end.left;
+        }
+        System.out.println(end.val);
+    }
 
     public static void printLinkedList1(ListNode head) {
         System.out.print("Linked List: ");

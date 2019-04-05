@@ -9,11 +9,11 @@ public class Main4 {
         while (in.hasNext()) {
             String s = in.nextLine();
             String[] str = s.split(",");
-            if ("Node".equals(str[0])) {
+            if ("TreeNode".equals(str[0])) {
                 System.out.println("True");
             }
             int[] nums = new int[str.length + 1];
-            for (int i = 0; i < str.length && !("Node".equals(str[i])); i++) {
+            for (int i = 0; i < str.length && !("TreeNode".equals(str[i])); i++) {
                 nums[i] = Integer.parseInt(str[i]);
             }
             if (isBST(nums)) {
